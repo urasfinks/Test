@@ -2,10 +2,12 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
+import { RecComponent } from './rec/rec.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    RecComponent
   ],
   imports: [
     BrowserModule
@@ -13,4 +15,6 @@ import { AppComponent } from './app.component';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+
+}
