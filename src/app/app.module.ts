@@ -7,12 +7,17 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { XsdCreatorComponent } from './xsd-creator/xsd-creator.component';
 import {RouterModule, Routes} from "@angular/router";
 import { AlertModule } from 'ngx-bootstrap/alert';
-import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+//import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ModalModule } from 'ngx-bootstrap/modal';
+//import { ModalModule } from 'ngx-bootstrap/modal';
 import { TimepickerModule } from 'ngx-bootstrap/timepicker';
 import { FormsModule } from '@angular/forms';
-import { NgSelectModule } from '@ng-select/ng-select'; //https://github.com/ng-select/ng-select
+//import { NgSelectModule } from '@ng-select/ng-select'; //https://github.com/ng-select/ng-select
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatInputModule} from '@angular/material/input';
+import {MatSelectModule} from '@angular/material/select';
+import {MatTooltipModule, TooltipPosition} from '@angular/material/tooltip';
+import {MatButtonModule} from '@angular/material/button';
 
 
 const appRoutes: Routes = [
@@ -31,12 +36,17 @@ const appRoutes: Routes = [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
     AlertModule.forRoot(),
-    BsDatepickerModule.forRoot(),
+    //BsDatepickerModule.forRoot(),
     BrowserAnimationsModule,
-    ModalModule.forRoot(),
+    //ModalModule.forRoot(),
     TimepickerModule.forRoot(),
-    NgSelectModule,
-    FormsModule
+    //NgSelectModule,
+    FormsModule,
+    MatCheckboxModule,
+    MatInputModule,
+    MatSelectModule,
+    MatTooltipModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

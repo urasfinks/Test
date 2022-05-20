@@ -1,4 +1,22 @@
-<p>
-  <!--{{item | json}}-->
-  <input ngModel [value]="item.name">
+<p style="width:300px;">
+  <mat-form-field class="example-full-width w-100">
+    <mat-label>Имя узла</mat-label>
+    <input matInput placeholder="root" [(ngModel)]="item.name">
+  </mat-form-field>
+  <br>
+  <mat-form-field class="w-100">
+    <mat-label>Тип узла</mat-label>
+    <mat-select [(ngModel)]="item.typeElement">
+      <mat-option *ngFor="let t of item.availableTypeElement" [value]="t.id">
+        {{t.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br>
+  <mat-checkbox [color]="'primary'" [(ngModel)]="item.useAttribute">Использовать атрибуты</mat-checkbox>
+  <br>
+  <br>
+  <button mat-stroked-button matTooltip="Info about the action" matTooltipPosition="right">
+    Action
+  </button>
 </p>
