@@ -12,6 +12,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { TimepickerModule } from 'ngx-bootstrap/timepicker';
 import { FormsModule } from '@angular/forms';
+import { NgSelectModule } from '@ng-select/ng-select'; //https://github.com/ng-select/ng-select
 
 
 const appRoutes: Routes = [
@@ -34,6 +35,7 @@ const appRoutes: Routes = [
     BrowserAnimationsModule,
     ModalModule.forRoot(),
     TimepickerModule.forRoot(),
+    NgSelectModule,
     FormsModule
   ],
   providers: [],
