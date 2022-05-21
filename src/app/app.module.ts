@@ -7,7 +7,7 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { XsdCreatorComponent } from './xsd-creator/xsd-creator.component';
 
 import { AppComponent } from './app.component';
-import { RecModule } from './rec/rec.module';
+import { RecModule } from './xsd-creator/rec/rec.module';
 
 
 const appRoutes: Routes = [

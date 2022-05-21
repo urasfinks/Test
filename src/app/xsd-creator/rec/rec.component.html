@@ -1,0 +1,30 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#">Home</a></li>
+    <li class="breadcrumb-item"><a href="#">Library</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Data</li>
+  </ol>
+</nav>
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">Свойства</th>
+    <th scope="col">Содержимое</th>
+    <th scope="col">Атрибуты</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td scope="row">
+      <app-element-property [item]="item"></app-element-property>
+    </td>
+    <td>
+      <app-element-content [item]="item"></app-element-content>
+    </td>
+    <td>
+      <app-element-attribute [item]="item"></app-element-attribute>
+    </td>
+  </tr>
+  </tbody>
+</table>
+

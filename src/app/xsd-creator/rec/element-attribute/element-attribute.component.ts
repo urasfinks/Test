@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {XsdElement} from "../../XsdElement";
-import {XsdAttribute} from "../../XsdAttribute";
+import {XsdElement} from "../../../XsdElement";
+import {XsdAttribute} from "../../../XsdAttribute";
 
 @Component({
   selector: 'app-element-attribute',
