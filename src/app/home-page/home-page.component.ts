@@ -12,9 +12,7 @@ export class HomePageComponent implements OnInit {
   bsInlineRangeValue: Date[];
   maxDate = new Date();
 
-  modalRef?: BsModalRef;
   public myTime: Date = new Date();
-
 
   selectedCar = undefined;
   cars = [
@@ -24,7 +22,7 @@ export class HomePageComponent implements OnInit {
     { id: 4, name: 'Audi' },
   ];
 
-  constructor(private modalService: BsModalService) {
+  constructor() {
     this.maxDate.setDate(this.maxDate.getDate() + 7);
     this.bsInlineRangeValue = [this.bsInlineValue, this.maxDate];
   }
@@ -33,7 +31,7 @@ export class HomePageComponent implements OnInit {
   }
 
   openModal(template: TemplateRef<any>) {
-    this.modalRef = this.modalService.show(template);
+
   }
 
 }

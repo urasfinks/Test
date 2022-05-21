@@ -18,6 +18,11 @@ import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import {MatTooltipModule, TooltipPosition} from '@angular/material/tooltip';
 import {MatButtonModule} from '@angular/material/button';
+import {MatCardModule} from '@angular/material/card';
+import { ElementPropertyComponent } from './rec/element-property/element-property.component';
+import { ElementAttributeComponent } from './rec/element-attribute/element-attribute.component';
+import { ElementContentComponent } from './rec/element-content/element-content.component';
+import {MatIconModule} from '@angular/material/icon';
 
 
 const appRoutes: Routes = [
@@ -30,7 +35,10 @@ const appRoutes: Routes = [
     AppComponent,
     RecComponent,
     HomePageComponent,
-    XsdCreatorComponent
+    XsdCreatorComponent,
+    ElementPropertyComponent,
+    ElementAttributeComponent,
+    ElementContentComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +54,9 @@ const appRoutes: Routes = [
     MatInputModule,
     MatSelectModule,
     MatTooltipModule,
-    MatButtonModule
+    MatButtonModule,
+    MatCardModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,6 +1,10 @@
+import {XsdAttribute} from "./XsdAttribute";
+
 export class XsdElement {
 
   public name: String = "";
+
+  public listAttribute: Array<XsdAttribute> = [];
 
   public availableTypeElement = [
     {id: 1, name: 'Простой элемент'},
@@ -13,8 +17,11 @@ export class XsdElement {
     {id: 3, name: 'Один из'} //choice
   ];
 
-  public useAttribute: Boolean = false;
   public typeElement: Number = 1;
   public typeArray: Number = 1;
+
+  constructor() {
+    this.listAttribute.push(new XsdAttribute());
+  }
 
 }

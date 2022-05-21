@@ -1,0 +1,11 @@
+<div *ngFor="let attr of item.listAttribute">
+  <mat-form-field class="example-full-width w-100">
+    <mat-label>Имя атрибута</mat-label>
+    <input matInput placeholder="name" [(ngModel)]="attr.name">
+  </mat-form-field>
+  <br>
+</div>
+<button mat-icon-button matTooltip="Добавить атрибут" matTooltipPosition="right" (click)="addAttribute()">
+  <mat-icon>add_circle_outline</mat-icon>
+</button>
+
