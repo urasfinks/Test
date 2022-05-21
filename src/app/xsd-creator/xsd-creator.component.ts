@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {XsdElement} from "../XsdElement";
 
-
 @Component({
   selector: 'app-xsd-creator',
   templateUrl: './xsd-creator.component.html',
