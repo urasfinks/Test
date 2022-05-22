@@ -8,12 +8,11 @@ import {XsdElement} from "../XsdElement";
 })
 export class XsdCreatorComponent implements OnInit {
 
-  constructor() { }
-
   first: XsdElement = new XsdElement();
 
-  ngOnInit(): void {
+  constructor() { }
 
+  ngOnInit(): void {
   }
 
 }

@@ -4,28 +4,23 @@ import {RouterModule, Routes} from "@angular/router";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { HomePageComponent } from './home-page/home-page.component';
-import { XsdCreatorComponent } from './xsd-creator/xsd-creator.component';
-
 import { AppComponent } from './app.component';
-import { RecModule } from './xsd-creator/rec/rec.module';
-
+import {XsdCreatorModule} from "./xsd-creator/xsd-creator.module";
 
 const appRoutes: Routes = [
-  {path: 'xsd-creator', component: XsdCreatorComponent},
   {path: '', component: HomePageComponent},
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomePageComponent,
-    XsdCreatorComponent
+    HomePageComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
     BrowserAnimationsModule,
-    RecModule
+    XsdCreatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]
