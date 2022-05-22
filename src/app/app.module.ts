@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
-import {XsdCreatorModule} from "./xsd-creator/xsd-creator.module";
 import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
@@ -13,8 +12,7 @@ import { AppRoutingModule } from './app-routing.module';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    AppRoutingModule,
-    XsdCreatorModule
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

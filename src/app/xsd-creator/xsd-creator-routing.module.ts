@@ -5,7 +5,7 @@ import {RouterModule, Routes} from "@angular/router";
 import {XsdCreatorComponent} from "./xsd-creator.component";
 
 const appRoutes: Routes = [
-  {path: 'xsd-creator', component: XsdCreatorComponent}
+  {path: '', component: XsdCreatorComponent}
 ];
 
 @NgModule({
