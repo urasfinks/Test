@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {XsdElement} from "./XsdElement";
+import {XsdElement} from "./xsd-creator/class/XsdElement";
 
 @Component({
   selector: 'app-root',

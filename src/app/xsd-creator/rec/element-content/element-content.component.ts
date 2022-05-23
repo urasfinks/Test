@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {XsdElement} from "../../../XsdElement";
+import {XsdElement} from "../../class/XsdElement";
+import {XsdExtension} from "../../class/XsdExtension";
 
 @Component({
   selector: 'app-element-content',
@@ -15,4 +16,7 @@ export class ElementContentComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  addElement() {
+    this.item.listElement.push(new XsdElement());
+  }
 }

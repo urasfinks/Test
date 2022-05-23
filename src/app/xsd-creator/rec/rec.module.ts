@@ -17,13 +17,15 @@ import { RecComponent } from './rec.component';
 import { ElementPropertyComponent } from './element-property/element-property.component';
 import { ElementAttributeComponent } from './element-attribute/element-attribute.component';
 import { ElementContentComponent } from './element-content/element-content.component';
+import {ExtensionComponent} from "./extension/extension.component";
 
 @NgModule({
   declarations: [
     RecComponent,
     ElementPropertyComponent,
     ElementAttributeComponent,
-    ElementContentComponent
+    ElementContentComponent,
+    ExtensionComponent
   ],
   imports: [
     CommonModule,

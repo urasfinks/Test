@@ -1,1 +1,28 @@
-<p>element-content works!</p>
+<div *ngIf="item.typeElement == 2">
+  <div *ngFor="let el of item.listElement">
+    <mat-form-field class="example-full-width w-100">
+      <mat-label>Имя узла</mat-label>
+      <input matInput placeholder="name" [(ngModel)]="el.name">
+      <button mat-icon-button matSuffix>
+        <mat-icon>settings</mat-icon>
+      </button>
+    </mat-form-field>
+    <br>
+  </div>
+  <button mat-icon-button matTooltip="Добавить элемент" matTooltipPosition="right" (click)="addElement()">
+    <mat-icon>add_circle_outline</mat-icon>
+  </button>
+</div>
+
+<div *ngIf="item.typeElement == 1">
+  <mat-form-field class="w-100">
+    <mat-label>Тип данных</mat-label>
+    <mat-select [(ngModel)]="item.contentSimpleType">
+      <mat-option *ngFor="let t of item.availableSimpleType" [value]="t.id">
+        {{t.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br>
+  <app-extension [item]="item"></app-extension>
+</div>
