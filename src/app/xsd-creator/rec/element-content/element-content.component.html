@@ -15,14 +15,5 @@
 </div>
 
 <div *ngIf="item.typeElement == 1">
-  <mat-form-field class="w-100">
-    <mat-label>Тип данных</mat-label>
-    <mat-select [(ngModel)]="item.contentSimpleType">
-      <mat-option *ngFor="let t of item.availableSimpleType" [value]="t.id">
-        {{t.name}}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
-  <br>
-  <app-extension [item]="item"></app-extension>
+  <app-extension [item]="item" [show]="true"></app-extension>
 </div>

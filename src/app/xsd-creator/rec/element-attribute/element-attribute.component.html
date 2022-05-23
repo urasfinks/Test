@@ -2,11 +2,13 @@
   <mat-form-field class="example-full-width w-100">
     <mat-label>Имя атрибута</mat-label>
     <input matInput placeholder="name" [(ngModel)]="attr.name">
-    <button mat-icon-button matSuffix>
+    <button mat-icon-button matSuffix class="show" (click)="collapse(attr)" data-bs-toggle="collapse" [attr.data-bs-target]="'#s'+attr.guid">
       <mat-icon>settings</mat-icon>
     </button>
   </mat-form-field>
+
   <br>
+  <app-extension [item]="attr" [show]="false"></app-extension>
 </div>
 <button mat-icon-button matTooltip="Добавить атрибут" matTooltipPosition="right" (click)="addAttribute()">
   <mat-icon>add_circle_outline</mat-icon>
