@@ -2,7 +2,6 @@ import {Component, Input, OnInit} from '@angular/core';
 import {XsdExtensions} from "../../class/XsdExtensions";
 import {DialogConfirmContent, HistoryService} from "../../history.service";
 import {XsdExtension} from "../../class/XsdExtension";
-import {find} from "rxjs/operators";
 
 @Component({
   selector: 'app-extension',
