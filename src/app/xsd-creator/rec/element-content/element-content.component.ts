@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {XsdElement} from "../../class/XsdElement";
-import {XsdExtension} from "../../class/XsdExtension";
+import {HistoryService} from "../../history.service";
 
 @Component({
   selector: 'app-element-content',
@@ -9,14 +9,19 @@ import {XsdExtension} from "../../class/XsdExtension";
 })
 export class ElementContentComponent implements OnInit {
 
-  @Input() item: XsdElement = new XsdElement();
+  @Input() item: XsdElement = new XsdElement("");
 
-  constructor() { }
+  constructor(private service: HistoryService) { }
 
   ngOnInit(): void {
   }
 
   addElement() {
-    this.item.listElement.push(new XsdElement());
+    this.item.listElement.push(new XsdElement(""));
+  }
+
+  openElement(el: XsdElement): void {
+    this.service.addHistory(el);
+    console.log(this.service.history);
   }
 }

@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {XsdElement} from "./xsd-creator/class/XsdElement";
 
 @Component({
   selector: 'app-root',
@@ -9,9 +8,7 @@ import {XsdElement} from "./xsd-creator/class/XsdElement";
 export class AppComponent implements OnInit{
   title = 'XsdCreator';
 
-  public x: XsdElement = new XsdElement();
-
   ngOnInit(): void {
-    //this.x = ;
+
   }
 }

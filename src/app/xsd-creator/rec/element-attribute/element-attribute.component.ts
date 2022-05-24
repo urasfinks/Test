@@ -10,7 +10,7 @@ import {XsdExtensions} from "../../class/XsdExtensions";
 })
 export class ElementAttributeComponent implements OnInit {
 
-  @Input() item: XsdElement = new XsdElement();
+  @Input() item: XsdElement = new XsdElement("");
 
   constructor() { }
 

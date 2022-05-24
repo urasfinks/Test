@@ -8,7 +8,7 @@ import {XsdElement} from "../../class/XsdElement";
 })
 export class ElementPropertyComponent implements OnInit {
 
-  @Input() item: XsdElement = new XsdElement();
+  @Input() item: XsdElement = new XsdElement("");
 
   constructor() { }
 

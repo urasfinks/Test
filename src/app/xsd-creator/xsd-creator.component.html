@@ -1,8 +1,9 @@
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="#">Home</a></li>
-    <li class="breadcrumb-item"><a href="#">Library</a></li>
-    <li class="breadcrumb-item active" aria-current="page">Data</li>
+    <li class="breadcrumb-item {{last == true ? 'active' : ''}}" *ngFor="let el of history; let i = index; let first = first ;let last = last;">
+      <a style="cursor: pointer;" *ngIf="last == false" (click)="openHistory(el)">{{el.name}}</a>
+      <span *ngIf="last == true">{{el.name}}</span>
+    </li>
   </ol>
 </nav>
-<app-rec [item]="first"></app-rec>
+<app-rec [item]="history[history.length-1]"></app-rec>

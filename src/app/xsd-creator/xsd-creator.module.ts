@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import {XsdCreatorComponent} from "./xsd-creator.component";
 import {XsdCreatorRoutingModule} from "./xsd-creator-routing.module";
 import {RecModule} from "./rec/rec.module";
+import {HistoryService} from "./history.service";
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import {RecModule} from "./rec/rec.module";
   ],
   exports:[
 
-  ]
+  ],
+  providers: [HistoryService]
 })
 export class XsdCreatorModule { }

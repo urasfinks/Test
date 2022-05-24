@@ -23,8 +23,9 @@ export class XsdElement extends XsdExtensions{
     {id: 3, name: 'Один из', alias: 'choice'} //choice
   ];
 
-  constructor() {
+  constructor(name: String) {
     super();
+    this.name = name;
     this.listAttribute.push(new XsdAttribute());
   }
 
