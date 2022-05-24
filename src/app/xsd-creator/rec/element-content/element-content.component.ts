@@ -22,6 +22,5 @@ export class ElementContentComponent implements OnInit {
 
   openElement(el: XsdElement): void {
     this.service.addHistory(el);
-    console.log(this.service.history);
   }
 }
