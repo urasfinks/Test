@@ -1,7 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {XsdElement} from "../../class/XsdElement";
 import {XsdAttribute} from "../../class/XsdAttribute";
-import {XsdExtensions} from "../../class/XsdExtensions";
 
 @Component({
   selector: 'app-element-attribute',
@@ -21,7 +20,12 @@ export class ElementAttributeComponent implements OnInit {
     this.item.listAttribute.push(new XsdAttribute());
   }
 
-  collapse(attr: XsdExtensions) {
-
+  removeAttribute(ex: XsdAttribute) {
+    const index = this.item.listAttribute.indexOf(ex, 0);
+    if (index > -1) {
+      this.item.listAttribute.splice(index, 1);
+    }
   }
+
 }
+

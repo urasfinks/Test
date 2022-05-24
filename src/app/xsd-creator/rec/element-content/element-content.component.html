@@ -1,11 +1,24 @@
 <div *ngIf="item.typeElement == 2">
   <div *ngFor="let el of item.listElement">
-    <mat-form-field class="example-full-width w-100">
+    <mat-form-field class="example-full-width w-50">
       <mat-label>Имя узла</mat-label>
       <input matInput placeholder="name" [(ngModel)]="el.name">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width w-25">
+      <mat-label>Минимум</mat-label>
+      <input matInput placeholder="name" [(ngModel)]="el.min">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width w-25">
+      <mat-label>Максимум</mat-label>
+      <input matInput placeholder="name" [(ngModel)]="el.max">
 
       <button mat-icon-button matSuffix (click)="openElement(el)">
         <mat-icon>settings</mat-icon>
+      </button>
+      <button mat-icon-button matSuffix (click)="removeChildElement(el)">
+        <mat-icon>remove_circle_outline</mat-icon>
       </button>
     </mat-form-field>
     <br>

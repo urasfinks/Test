@@ -6,6 +6,8 @@ export class XsdElement extends XsdExtensions{
   public name: String = "";
   public listAttribute: Array<XsdAttribute> = [];
   public listElement: Array<XsdElement> = [];
+  public min: number = 1;
+  public max: number = 1;
 
 
   public typeElement: Number = 1;

@@ -11,7 +11,8 @@ export class ElementContentComponent implements OnInit {
 
   @Input() item: XsdElement = new XsdElement("");
 
-  constructor(private service: HistoryService) { }
+  constructor(private service: HistoryService) {
+  }
 
   ngOnInit(): void {
   }
@@ -23,4 +24,12 @@ export class ElementContentComponent implements OnInit {
   openElement(el: XsdElement): void {
     this.service.addHistory(el);
   }
+
+  removeChildElement(ex: XsdElement) {
+    const index = this.item.listElement.indexOf(ex, 0);
+    if (index > -1) {
+      this.item.listElement.splice(index, 1);
+    }
+  }
+
 }
