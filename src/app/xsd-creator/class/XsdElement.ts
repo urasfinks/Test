@@ -12,7 +12,6 @@ export class XsdElement extends XsdExtensions{
 
   public typeElement: Number = 1;
   public typeArray: Number = 1;
-  public contentSimpleType: Number = 1;
 
   public availableTypeElement = [
     {id: 1, name: 'Простой элемент'},
@@ -28,7 +27,6 @@ export class XsdElement extends XsdExtensions{
   constructor(name: String) {
     super();
     this.name = name;
-    this.listAttribute.push(new XsdAttribute());
   }
 
 }

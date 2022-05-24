@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {XsdElement} from "../../class/XsdElement";
 import {XsdAttribute} from "../../class/XsdAttribute";
+import {DialogConfirmContent, HistoryService} from "../../history.service";
 
 @Component({
   selector: 'app-element-attribute',
@@ -11,7 +12,8 @@ export class ElementAttributeComponent implements OnInit {
 
   @Input() item: XsdElement = new XsdElement("");
 
-  constructor() { }
+  constructor(public service: HistoryService) {
+  }
 
   ngOnInit(): void {
   }
@@ -21,10 +23,9 @@ export class ElementAttributeComponent implements OnInit {
   }
 
   removeAttribute(ex: XsdAttribute) {
-    const index = this.item.listAttribute.indexOf(ex, 0);
-    if (index > -1) {
-      this.item.listAttribute.splice(index, 1);
-    }
+    this.service.openDialog(new DialogConfirmContent("Вы действительно хотите удалить атрибут '" + ex.name + "' ?"), () => {
+      this.service.removeFromArray(this.item.listAttribute, ex);
+    });
   }
 
 }

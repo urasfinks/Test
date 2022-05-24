@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {XsdElement} from "../../class/XsdElement";
-import {HistoryService} from "../../history.service";
+import {DialogConfirmContent, HistoryService} from "../../history.service";
 
 @Component({
   selector: 'app-element-content',
@@ -26,10 +26,9 @@ export class ElementContentComponent implements OnInit {
   }
 
   removeChildElement(ex: XsdElement) {
-    const index = this.item.listElement.indexOf(ex, 0);
-    if (index > -1) {
-      this.item.listElement.splice(index, 1);
-    }
+    this.service.openDialog(new DialogConfirmContent("Вы действительно хотите удалить элемент '" + ex.name + "' ?"), () => {
+      this.service.removeFromArray(this.item.listElement, ex);
+    });
   }
 
 }
