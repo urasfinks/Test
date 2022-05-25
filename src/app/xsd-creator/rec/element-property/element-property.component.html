@@ -14,16 +14,28 @@
 </mat-form-field>
 <br>
 
-<mat-form-field class="w-100" *ngIf="item.typeElement == 2">
-  <mat-label>Тип дочерних элементов</mat-label>
-  <mat-select [(ngModel)]="item.typeArray">
-    <mat-option *ngFor="let t of item.availableTypeArray" [value]="t.id">
-      {{t.name}}
-    </mat-option>
-  </mat-select>
-</mat-form-field>
-<br>
+<div *ngIf="item.typeElement == 2">
+  <mat-form-field class="w-100">
+    <mat-label>Тип дочерних элементов</mat-label>
+    <mat-select [(ngModel)]="item.typeArray">
+      <mat-option *ngFor="let t of item.availableTypeArray" [value]="t.id">
+        {{t.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br>
+</div>
 
-<!--<mat-checkbox [color]="'primary'" [(ngModel)]="item.useAttribute">Использовать атрибуты</mat-checkbox>-->
-<br>
-<br>
+<div *ngIf="item.root == false">
+  <mat-form-field class="w-100">
+    <mat-label>Минимальное кол-во</mat-label>
+    <input matInput placeholder="name" [(ngModel)]="item.min">
+  </mat-form-field>
+
+  <mat-form-field class="w-100">
+    <mat-label>Максимальное кол-во</mat-label>
+    <input matInput placeholder="name" [(ngModel)]="item.max">
+  </mat-form-field>
+</div>
+
+

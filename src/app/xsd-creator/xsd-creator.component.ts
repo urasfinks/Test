@@ -15,7 +15,9 @@ export class XsdCreatorComponent implements OnInit {
 
   ngOnInit(): void {
     this.history = this.service.history;
-    this.history.push(new XsdElement("root"));
+    let el: XsdElement = new XsdElement("root");
+    el.root = true;
+    this.history.push(el);
   }
 
   openHistory(el: XsdElement) {

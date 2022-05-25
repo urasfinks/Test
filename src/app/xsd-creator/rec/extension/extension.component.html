@@ -21,21 +21,31 @@
 
   <div *ngIf="item.selectedExtraSimpleType == 1">
     <div *ngFor="let ex of item.listExtension">
-      <mat-form-field class="w-50">
-        <mat-label>Условие</mat-label>
-        <mat-select [(ngModel)]="ex.id">
-          <mat-option *ngFor="let t of item.availableExtensionType" [value]="t.id">
-            {{t.name}}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-      <mat-form-field class="w-50">
-        <mat-label>Значение</mat-label>
-        <input matInput placeholder="name" [(ngModel)]="ex.value">
-        <button mat-icon-button matSuffix (click)="removeExtension(ex)">
-          <mat-icon>remove_circle_outline</mat-icon>
-        </button>
-      </mat-form-field>
+      <table>
+        <tr>
+          <td width="48%">
+            <mat-form-field class="w-100">
+              <mat-label>Условие</mat-label>
+              <mat-select [(ngModel)]="ex.id">
+                <mat-option *ngFor="let t of item.availableExtensionType" [value]="t.id">
+                  {{t.name}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </td>
+          <td width="48%">
+            <mat-form-field class="w-100">
+              <mat-label>Значение</mat-label>
+              <input matInput placeholder="name" [(ngModel)]="ex.value">
+            </mat-form-field>
+          </td>
+          <td width="4%">
+            <button mat-icon-button (click)="removeExtension(ex)" matTooltip="Удалить условие" matTooltipPosition="right">
+              <mat-icon [inline]="true">remove_circle_outline</mat-icon>
+            </button>
+          </td>
+        </tr>
+      </table>
     </div>
     <button mat-icon-button matTooltip="Добавить условие" matTooltipPosition="right" (click)="item.addExtension()">
       <mat-icon>add_circle_outline</mat-icon>

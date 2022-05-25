@@ -1,16 +1,24 @@
 <div *ngFor="let attr of item.listAttribute">
-  <mat-form-field class="example-full-width w-100">
-    <mat-label>Имя атрибута</mat-label>
-    <input matInput placeholder="name" [(ngModel)]="attr.name">
-    <button mat-icon-button matSuffix class="show" data-bs-toggle="collapse" [attr.data-bs-target]="'#s'+attr.guid">
-      <mat-icon>settings</mat-icon>
-    </button>
-    <button mat-icon-button matSuffix (click)="removeAttribute(attr)">
-      <mat-icon>remove_circle_outline</mat-icon>
-    </button>
-  </mat-form-field>
-
-  <br>
+  <table>
+    <tr>
+      <td width="96%">
+        <mat-form-field class="example-full-width w-100">
+          <mat-label>Имя атрибута</mat-label>
+          <input matInput placeholder="name" [(ngModel)]="attr.name">
+        </mat-form-field>
+      </td>
+      <td width="2%">
+        <button mat-icon-button class="show" data-bs-toggle="collapse" [attr.data-bs-target]="'#s'+attr.guid" matTooltip="Настроить атрибут">
+          <mat-icon [inline]="true">settings</mat-icon>
+        </button>
+      </td>
+      <td width="2%">
+        <button mat-icon-button (click)="removeAttribute(attr)" matTooltip="Удалить атрибут">
+          <mat-icon [inline]="true">remove_circle_outline</mat-icon>
+        </button>
+      </td>
+    </tr>
+  </table>
   <app-extension [item]="attr" [show]="false"></app-extension>
 </div>
 <button mat-icon-button matTooltip="Добавить атрибут" matTooltipPosition="right" (click)="addAttribute()">

@@ -3,6 +3,7 @@ import {XsdExtensions} from "./XsdExtensions";
 
 export class XsdElement extends XsdExtensions{
 
+  public root: boolean = false;
   public name: String = "";
   public listAttribute: Array<XsdAttribute> = [];
   public listElement: Array<XsdElement> = [];
