@@ -10,6 +10,8 @@ import {HistoryService} from "./history.service";
 export class XsdCreatorComponent implements OnInit {
 
   history: Array<XsdElement> = [];
+  last: string = "";
+
 
   constructor(private service: HistoryService) { }
 
@@ -22,5 +24,18 @@ export class XsdCreatorComponent implements OnInit {
 
   openHistory(el: XsdElement) {
     this.service.removeHistory(el);
+  }
+
+  prepare() {
+    let now = JSON.stringify(this.history[0]);
+    if(this.last != now){
+      this.onChange(now);
+      this.last = now;
+    }
+    return true;
+  }
+
+  onChange(data: string){
+    console.log(data);
   }
 }

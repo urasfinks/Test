@@ -42,6 +42,8 @@ export class HistoryService {
 
   constructor(public dialog: MatDialog) {
   }
+
+
 }
 
 export class DialogConfirmContent{

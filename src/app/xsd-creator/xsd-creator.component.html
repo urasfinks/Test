@@ -9,6 +9,6 @@
 
 <app-rec [item]="history[history.length-1]"></app-rec>
 
-<pre>
+<pre *ngIf="prepare()">
   {{history[0] | json}}
 </pre>
