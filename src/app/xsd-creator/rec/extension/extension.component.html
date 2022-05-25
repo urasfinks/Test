@@ -2,7 +2,7 @@
   <mat-form-field class="w-100">
     <mat-label>Тип данных</mat-label>
     <mat-select [(ngModel)]="item.selectedSimpleType">
-      <mat-option *ngFor="let t of item.availableSimpleType" [value]="t.id">
+      <mat-option *ngFor="let t of availableSimpleType" [value]="t.id">
         {{t.name}}
       </mat-option>
     </mat-select>
@@ -11,7 +11,7 @@
   <mat-form-field class="w-100">
     <mat-label>Дополнительные условия</mat-label>
     <mat-select [(ngModel)]="item.selectedExtraSimpleType">
-      <mat-option *ngFor="let t of item.availableExtraSimpleType" [value]="t.id">
+      <mat-option *ngFor="let t of availableExtraSimpleType" [value]="t.id">
         {{t.name}}
       </mat-option>
     </mat-select>
@@ -27,7 +27,7 @@
             <mat-form-field class="w-100">
               <mat-label>Условие</mat-label>
               <mat-select [(ngModel)]="ex.id">
-                <mat-option *ngFor="let t of item.availableExtensionType" [value]="t.id">
+                <mat-option *ngFor="let t of availableExtensionType" [value]="t.id">
                   {{t.name}}
                 </mat-option>
               </mat-select>
@@ -47,7 +47,7 @@
         </tr>
       </table>
     </div>
-    <button mat-icon-button matTooltip="Добавить условие" matTooltipPosition="right" (click)="item.addExtension()">
+    <button mat-icon-button matTooltip="Добавить условие" matTooltipPosition="right" (click)="addExtension(item.listExtension)">
       <mat-icon>add_circle_outline</mat-icon>
     </button>
   </div>
