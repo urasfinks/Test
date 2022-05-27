@@ -23,7 +23,12 @@
   <div class="col col-4">
     <div class="card border-0">
       <div class="card-body w-100" style="overflow: hidden;">
-        <h3 class="card-title">Схема</h3>
+        <h3 class="card-title">
+          Схема
+          <button mat-icon-button matTooltip="Скопировать в буфер" ngxClipboard [cbContent]="xsd" matTooltipPosition="right">
+            <mat-icon [inline]="true">filter_none</mat-icon>
+          </button>
+        </h3>
         <pre class="w-100" *ngIf="prepare()" [highlight]="xsd" [lineNumbers]="false"></pre>
       </div>
     </div>

@@ -29,6 +29,7 @@
     "jquery": "^3.6.0",
     "material-icons": "^1.10.11",
     "ngx-bootstrap": "^8.0.0",
+    "ngx-clipboard": "^15.1.0",
     "ngx-highlightjs": "^6.1.2",
     "popper.js": "^1.16.1",
     "rxjs": "~7.5.0",
