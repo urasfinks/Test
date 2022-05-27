@@ -11,12 +11,13 @@ export class XsdElement extends XsdExtensions{
   public max: number = 1;
 
 
-  public typeElement: Number = 1;
-  public typeArray: Number = 1;
+  public typeElement: number = 1;
+  public selectedTypeArray: number = 1;
 
   constructor(name: String) {
     super();
     this.name = name;
+    //this.listAttribute.push(new XsdAttribute());
   }
 
 }

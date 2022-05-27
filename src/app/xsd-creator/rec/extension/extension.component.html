@@ -2,7 +2,7 @@
   <mat-form-field class="w-100">
     <mat-label>Тип данных</mat-label>
     <mat-select [(ngModel)]="item.selectedSimpleType">
-      <mat-option *ngFor="let t of availableSimpleType" [value]="t.id">
+      <mat-option *ngFor="let t of service.availableSimpleType" [value]="t.id">
         {{t.name}}
       </mat-option>
     </mat-select>
@@ -27,7 +27,7 @@
             <mat-form-field class="w-100">
               <mat-label>Условие</mat-label>
               <mat-select [(ngModel)]="ex.id">
-                <mat-option *ngFor="let t of availableExtensionType" [value]="t.id">
+                <mat-option *ngFor="let t of service.availableExtensionType" [value]="t.id">
                   {{t.name}}
                 </mat-option>
               </mat-select>

@@ -17,8 +17,8 @@
 <div *ngIf="item.typeElement == 2">
   <mat-form-field class="w-100">
     <mat-label>Тип дочерних элементов</mat-label>
-    <mat-select [(ngModel)]="item.typeArray">
-      <mat-option *ngFor="let t of availableTypeArray" [value]="t.id">
+    <mat-select [(ngModel)]="item.selectedTypeArray">
+      <mat-option *ngFor="let t of service.availableTypeArray" [value]="t.id">
         {{t.name}}
       </mat-option>
     </mat-select>

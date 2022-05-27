@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {XsdElement} from "../../class/XsdElement";
+import {HistoryService} from "../../history.service";
 
 @Component({
   selector: 'app-element-property',
@@ -15,13 +16,7 @@ export class ElementPropertyComponent implements OnInit {
     {id: 2, name: 'Массив элементов'}
   ];
 
-  public availableTypeArray: Array<any> = [
-    {id: 1, name: 'Строгая последовательность', alias: 'sequence'}, //seq minOccurs:[0,1] maxOccurs[unbounded]
-    {id: 2, name: 'Произвольная последовательность', alias: 'all'}, //all minOccurs:[0,1] maxOccurs[1]
-    {id: 3, name: 'Один из', alias: 'choice'} //choice
-  ];
-
-  constructor() { }
+  constructor(public service: HistoryService) { }
 
   ngOnInit(): void {
   }
