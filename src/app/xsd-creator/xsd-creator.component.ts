@@ -1,18 +1,26 @@
 import {Component, OnInit} from '@angular/core';
 import {XsdElement} from "./class/XsdElement";
-import {HistoryService} from "./history.service";
+import {DialogConfirmContent, HistoryService} from "./history.service";
 import {XsdAttribute} from "./class/XsdAttribute";
+
+
+declare var xmllint: any;
 
 @Component({
   selector: 'app-xsd-creator',
   templateUrl: './xsd-creator.component.html',
   styleUrls: ['./xsd-creator.component.css']
 })
+
 export class XsdCreatorComponent implements OnInit {
 
   history: Array<XsdElement> = [];
   last: string = "";
   xsd: string = "";
+  autoCheck: boolean = true;
+  listData: Array<any> = [{data: "<root></root>", validate: ""}];
+  selectedData: number = 0;
+  info: any | undefined;
 
   constructor(private service: HistoryService) {
   }
@@ -40,7 +48,8 @@ export class XsdCreatorComponent implements OnInit {
   onChange(data: string) {
     let json: XsdElement = JSON.parse(data);
     let arExtra: Array<string> = [];
-    this.xsd = this.prettifyXml2("<xs:schema xmlns:xs=\"http://www.w3.org/2001/XMLSchema\"><xs:element name=\"" + json.name + "\">" + this.rec(json, arExtra) + "</xs:element></xs:schema>" + arExtra.join(""), "  ");
+    this.xsd = this.prettifyXml2("<xs:schema xmlns:xs=\"http://www.w3.org/2001/XMLSchema\"><xs:element name=\"" + json.name + "\">" + this.rec(json, arExtra) + "</xs:element>" + arExtra.join("") + "</xs:schema>", "  ");
+    this.checkAllXsd();
   }
 
   getAttr(listAttribute: Array<XsdAttribute>) {
@@ -154,15 +163,30 @@ export class XsdCreatorComponent implements OnInit {
     return formatted.substring(1, formatted.length - 3);
   }
 
-  checkXsd(){
-    var Module = {
-      xml: "xmlData",
-      schema: "schemaData",
-      arguments: ["--noout", "--schema"]
-    };
+  checkAllXsd() {
+    for(let i=0;i<this.listData.length;i++){
+      this.checkXsd(i);
+    }
+  }
 
-//and call function
+  checkXsd(index: number) {
+    this.listData[index].validate = xmllint.validateXML({
+      xml: this.listData[index].data,
+      schema: this.xsd
+    });
+  }
 
+  addData() {
+    this.listData.push({data: "<root></root>", validate: ""});
+    this.selectedData = this.listData.length - 1;
+    this.checkXsd(this.selectedData);
+  }
+
+  removeData(data: any) {
+    this.service.openDialog(new DialogConfirmContent("Вы действительно хотите удалить данные '" + data.data + "' ?"), () => {
+      this.service.removeFromArray(this.listData, data);
+      this.selectedData = this.listData.length - 1;
+    });
   }
 
 }

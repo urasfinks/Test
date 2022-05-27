@@ -36,21 +36,45 @@
   <div class="col col-4">
     <div class="card border-0">
       <div class="card-body w-100">
-        <h3 class="card-title">Данные</h3>
+        <h3 class="card-title" style="line-height: 42px;" matTooltip="Автоматическая проверка происходит только при изменении структуры схемы" matTooltipPosition="above">
+          Автопроверка данных&nbsp;&nbsp;
+          <input class="form-check-input" type="checkbox" id="flexCheckDefault" [(ngModel)]="autoCheck" style="vertical-align: revert;">
+        </h3>
+        <ul class="list-group list-group-flush">
+          <!--<li class="list-group-item active" aria-current="true">An active item</li>-->
+          <li class="list-group-item d-flex justify-content-between align-items-center {{selectedData == index ? 'bg-light':''}}" *ngFor="let x of listData; let index = index;" (click)="selectedData = index">
+            <span *ngIf="x.validate.errors" class="badge text-bg-danger">Ошибка</span>&nbsp;
+            {{x.data | slice:0:16}}
+            <button mat-icon-button matTooltip="Удалить"  matTooltipPosition="right" (click)="removeData(x)"> <!--ngxClipboard [cbContent]="xsd"-->
+              <mat-icon [inline]="true">remove_circle_outline</mat-icon>
+            </button>
+          </li>
 
+        </ul>
+        <button mat-icon-button matTooltip="Добавить данные для проверки" matTooltipPosition="right" (click)="addData()">
+          <mat-icon>add_circle_outline</mat-icon>
+        </button>
       </div>
     </div>
   </div>
   <div class="col col-4">
     <div class="card border-0">
       <div class="card-body w-100">
-        <h3 class="card-title">Проверка</h3>
-
+        <h3 class="card-title">
+          Редактор данных
+          <button mat-icon-button matTooltip="Проверить"  matTooltipPosition="right" (click)="checkXsd(selectedData)"> <!--ngxClipboard [cbContent]="xsd"-->
+            <mat-icon [inline]="true">spellcheck</mat-icon>
+          </button>
+        </h3>
+        <!--{{info | json}}-->
+        <mat-form-field class="w-100">
+          <mat-label>Данные</mat-label>
+          <textarea matInput placeholder="xml" [(ngModel)]="listData[selectedData].data" (change)="checkXsd(selectedData)"></textarea>
+        </mat-form-field>
+        <div class="alert alert-danger" role="alert" *ngFor="let err of listData[selectedData].validate.errors">
+          {{err}}
+        </div>
       </div>
     </div>
   </div>
 </div>
-
-
-
-
