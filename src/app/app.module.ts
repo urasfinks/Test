@@ -7,6 +7,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { ConfirmComponent } from './confirm/confirm.component';
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatButtonModule} from '@angular/material/button';
+import {HIGHLIGHT_OPTIONS, HighlightModule, HighlightOptions} from "ngx-highlightjs";
+
 
 @NgModule({
   declarations: [
@@ -19,9 +21,22 @@ import {MatButtonModule} from '@angular/material/button';
     BrowserAnimationsModule,
     AppRoutingModule,
     MatDialogModule,
-    MatButtonModule
+    MatButtonModule,
+    HighlightModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HIGHLIGHT_OPTIONS,
+      useValue: <HighlightOptions>{
+        coreLibraryLoader: () => import('highlight.js/lib/core'),
+        languages: {
+          typescript: () => import('highlight.js/lib/languages/typescript'),
+          css: () => import('highlight.js/lib/languages/css'),
+          xml: () => import('highlight.js/lib/languages/xml'),
+        },
+      },
+    }
+  ],
   bootstrap: [AppComponent]
 })
 

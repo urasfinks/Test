@@ -5,6 +5,8 @@ import {XsdCreatorComponent} from "./xsd-creator.component";
 import {XsdCreatorRoutingModule} from "./xsd-creator-routing.module";
 import {RecModule} from "./rec/rec.module";
 import {HistoryService} from "./history.service";
+import {HighlightModule} from "ngx-highlightjs";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -13,7 +15,9 @@ import {HistoryService} from "./history.service";
   imports: [
     CommonModule,
     XsdCreatorRoutingModule,
-    RecModule
+    RecModule,
+    FormsModule,
+    HighlightModule
   ],
   exports:[
 
