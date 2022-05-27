@@ -3,7 +3,6 @@ import {XsdElement} from "./class/XsdElement";
 import {HistoryService} from "./history.service";
 import {XsdAttribute} from "./class/XsdAttribute";
 
-
 @Component({
   selector: 'app-xsd-creator',
   templateUrl: './xsd-creator.component.html',
@@ -153,6 +152,17 @@ export class XsdCreatorComponent implements OnInit {
       if (node.match(/^<?\w[^>]*[^\/]$/)) indent += tab;              // increase indent
     });
     return formatted.substring(1, formatted.length - 3);
+  }
+
+  checkXsd(){
+    var Module = {
+      xml: "xmlData",
+      schema: "schemaData",
+      arguments: ["--noout", "--schema"]
+    };
+
+//and call function
+
   }
 
 }
