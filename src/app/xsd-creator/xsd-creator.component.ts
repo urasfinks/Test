@@ -41,7 +41,7 @@ export class XsdCreatorComponent implements OnInit {
   onChange(data: string) {
     let json: XsdElement = JSON.parse(data);
     let arExtra: Array<string> = [];
-    this.xsd = this.prettifyXml2("<xs:element name=\"" + json.name + "\">" + this.rec(json, arExtra) + "</xs:element>" + arExtra.join(""), "  ");
+    this.xsd = this.prettifyXml2("<xs:schema xmlns:xs=\"http://www.w3.org/2001/XMLSchema\"><xs:element name=\"" + json.name + "\">" + this.rec(json, arExtra) + "</xs:element></xs:schema>" + arExtra.join(""), "  ");
   }
 
   getAttr(listAttribute: Array<XsdAttribute>) {

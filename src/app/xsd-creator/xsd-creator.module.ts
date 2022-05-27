@@ -7,6 +7,7 @@ import {RecModule} from "./rec/rec.module";
 import {HistoryService} from "./history.service";
 import {HighlightModule} from "ngx-highlightjs";
 import {FormsModule} from "@angular/forms";
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import {FormsModule} from "@angular/forms";
     XsdCreatorRoutingModule,
     RecModule,
     FormsModule,
-    HighlightModule
+    HighlightModule,
+    MatCardModule
   ],
   exports:[
 
