@@ -1,7 +1,10 @@
 <div *ngFor="let attr of item.listAttribute">
   <table>
     <tr>
-      <td width="96%">
+      <td width="2" style="padding-right: 10px;">
+        <input class="form-check-input" type="checkbox" [(ngModel)]="attr.required" style="vertical-align: revert;" matTooltip="Обязательный" matTooltipPosition="left">
+      </td>
+      <td width="94%">
         <mat-form-field class="example-full-width w-100">
           <mat-label>Имя атрибута</mat-label>
           <input matInput placeholder="name" [(ngModel)]="attr.name">

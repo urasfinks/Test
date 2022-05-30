@@ -132,9 +132,10 @@ export class XsdCreatorComponent implements OnInit {
         ar += "<xs:" + this.service.findExtensionType(el.listExtension[i].id, this.service.availableExtensionType, "alias") + " value=\"" + el.listExtension[i].value + "\"/>";
       }
       if (ar.length > 0) {
-        ar = "<xs:simpleType><xs:restriction>" + ar + "</xs:restriction></xs:simpleType>";
+        ar = "<xs:simpleType><xs:restriction base=\"" + this.service.findExtensionType(el.selectedSimpleType, this.service.availableSimpleType, "alias") + "\">" + ar + "</xs:restriction></xs:simpleType>";
       }
-      return "<xs:attribute name=\"" + el.name + "\" type=\"" + this.service.findExtensionType(el.selectedSimpleType, this.service.availableSimpleType, "alias") + "\">" + ar + "</xs:attribute>";
+      let req = el.required == true ? " use=\"required\"" : "";
+      return "<xs:attribute name=\"" + el.name + "\"" + req + ">" + ar + "</xs:attribute>";
     } else {
       return "<xs:notRealization></xs:notRealization>";
     }
@@ -164,7 +165,7 @@ export class XsdCreatorComponent implements OnInit {
   }
 
   checkAllXsd() {
-    for(let i=0;i<this.listData.length;i++){
+    for (let i = 0; i < this.listData.length; i++) {
       this.checkXsd(i);
     }
   }
